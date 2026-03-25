@@ -286,7 +286,7 @@ chunks = load_and_chunk_papers()
 # 🔧 CUSTOM BM25 RETRIEVER
 # -------------------------------
 class BM25CustomRetriever(Runnable):
-    def __init__(self, documents, k=10):
+    def __init__(self, documents, k=5):
         self.docs = documents
         self.k = k
         self.tokenized_docs = [doc.page_content.split() for doc in documents]
@@ -313,7 +313,7 @@ class BM25CustomRetriever(Runnable):
 # 🔧 HYBRID RETRIEVER
 # -------------------------------
 class HybridRetriever(Runnable):
-    def __init__(self, vector_retriever, keyword_retriever, k=10):
+    def __init__(self, vector_retriever, keyword_retriever, k=5):
         self.vector_retriever = vector_retriever
         self.keyword_retriever = keyword_retriever
         self.k = k
@@ -386,7 +386,7 @@ def get_advanced_retriever():
     )
 
     vector_retriever = vectorstore.as_retriever(
-        search_kwargs={"k": 10}
+        search_kwargs={"k": 5}
     )
 
     keyword_retriever = BM25CustomRetriever(chunks, k=10)
@@ -394,7 +394,7 @@ def get_advanced_retriever():
     hybrid_retriever = HybridRetriever(
         vector_retriever,
         keyword_retriever,
-        k=10
+        k=5
     )
 
     cross_encoder = HuggingFaceCrossEncoder(
@@ -403,7 +403,7 @@ def get_advanced_retriever():
 
     compressor = FixedCrossEncoderReranker(
         model=cross_encoder,
-        top_n=5
+        top_n=3
     )
 
     compression_retriever = ContextualCompressionRetriever(
