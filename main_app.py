@@ -8,7 +8,7 @@ from retriever_engine import get_advanced_retriever
 
 
 # ✅ Set API Key (better: export in terminal)
-os.environ["GOOGLE_API_KEY"] = "AIzaSyCVetBoloz7Fc_18oZeCRpwSAIs5DUhPcI"
+os.environ["GOOGLE_API_KEY"] = "YOUR_API_KEY"
 
 
 def run_rag_system():
