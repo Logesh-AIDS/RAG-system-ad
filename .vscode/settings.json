@@ -1,0 +1,7 @@
+{
+    "python.defaultInterpreterPath": "/Users/logeshalavandhan/research-rag-ai/venv/bin/python",
+    "python.analysis.extraPaths": [
+      "/Users/logeshalavandhan/research-rag-ai/venv/lib/python3.13/site-packages"
+    ],
+    "python.analysis.typeCheckingMode": "basic"
+  }
