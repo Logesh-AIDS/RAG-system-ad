@@ -52,7 +52,7 @@ def download_papers(topic, max_results=10):
 
     print(f"\n🎉 Done! Check the 'data' folder.")
 
-# --- RUN IT ---
+# --- RUN IT -- MAIN PART WHERE IT START
 if __name__ == "__main__":
     user_topic = input("Enter a research topic to search (e.g. 'Graph Neural Networks'): ")
     download_papers(user_topic, max_results=10)
